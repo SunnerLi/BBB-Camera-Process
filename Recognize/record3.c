@@ -3,13 +3,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#define NUMBER_OF_IMAGE 100
+#define NUMBER_OF_IMAGE 20
 
 int imageCounter = 0, timer = 0;
 
 char* Decide_Image_Name(){
 	char *s;
 	sprintf(s, "%06d.png", imageCounter++);
+	printf("%d\n", imageCounter);
 	return s;
 }
 
