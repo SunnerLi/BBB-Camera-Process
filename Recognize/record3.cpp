@@ -58,7 +58,7 @@ int main(){
 		cout<<"camera is null..."<<endl;
 
 	//work for a while
-	//delayDefineByMyself(30);
+	delayDefineByMyself(30);
 	for(i=0; i<15; i++){
 		if( img = cvQueryFrame(capture) )
 			cvWaitKey(20);
