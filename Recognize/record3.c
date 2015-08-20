@@ -5,24 +5,27 @@
 #include <unistd.h>
 #define NUMBER_OF_IMAGE 20
 
-int imageCounter = 0, timer = 0;
+int imageCounter = 1, timer = 0;
 
-char* Decide_Image_Name(){
+void Decide_Image_Name(IplImage* image){
 	char *s;
+	printf("%d\n", imageCounter);
 	sprintf(s, "%06d.png", imageCounter++);
 	printf("%d\n", imageCounter);
-	return s;
+	cvSaveImage(s, image, 0);
 }
 
 void Capture_Image(IplImage* image, CvCapture* capture){
 	int i;
+	char *s;
 	while( imageCounter < NUMBER_OF_IMAGE ){
 		image = cvQueryFrame(capture);
 		cvWaitKey(50);
 		timer++;
 		if( timer == 10){
 			timer = 0;
-			cvSaveImage(Decide_Image_Name(), image, 0);
+			printf("capture!\n");
+			Decide_Image_Name(image);
 		}
 	}
 }
