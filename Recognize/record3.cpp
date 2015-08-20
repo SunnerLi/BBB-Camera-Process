@@ -1,7 +1,7 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 #include <iostream>
-#define NUMBER_OF_IMAGE 20
+#define NUMBER_OF_IMAGE 50
 using namespace std;
 
 int imageCounter = 1, timer = 0;
@@ -19,7 +19,7 @@ void Capture_Image(IplImage* image, CvCapture* capture){
 	char *s;
 	while( imageCounter < NUMBER_OF_IMAGE ){
 		image = cvQueryFrame(capture);
-		cvWaitKey(50);
+		cvWaitKey(10000);
 		timer++;
 		if( timer == 10){
 			timer = 0;
@@ -47,7 +47,7 @@ int main(){
 	//work for a while
 	for(i=0; i<15; i++){
 		if( img = cvQueryFrame(capture) )
-			cvWaitKey(20);
+			cvWaitKey(2000);
 		else
 			cout<<"cannot capture the image..."<<endl;
 	}
