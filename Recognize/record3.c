@@ -17,7 +17,7 @@ char* Decide_Image_Name(){
 void Capture_Image(IplImage* image, CvCapture* capture){
 	int i;
 	while( imageCounter < NUMBER_OF_IMAGE ){
-		image == cvQueryFrame(capture);
+		image = cvQueryFrame(capture);
 		cvWaitKey(50);
 		timer++;
 		if( timer == 10){
@@ -44,7 +44,7 @@ int main(){
 
 	//work for a while
 	for(i=0; i<15; i++){
-		if( img == cvQueryFrame(capture) )
+		if( img = cvQueryFrame(capture) )
 			cvWaitKey(20);
 		else
 			printf("cannot capture the image...\n");
