@@ -23,7 +23,7 @@ void delayDefineByMyself(float time_want_to_wait)
 void Decide_Image_Name(IplImage* image){
 	char s[50];// need to use array, or get segmentation fault
 	cout<<imageCounter<<endl;
-	sprintf(s, "%06d.png", imageCounter++);
+	sprintf(s, "%06d.jpg", imageCounter++);
 	cvSaveImage(s, image, 0);
 }
 
@@ -51,8 +51,8 @@ int main(){
 	//assign the property about camera
 	capture = cvCaptureFromCAM(1);
 	if( capture ){
-		cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_WIDTH, 1920);
-		cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_HEIGHT, 1440);
+		//cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_WIDTH, 320);
+		//cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_HEIGHT, 240);
 	}
 	else
 		cout<<"camera is null..."<<endl;
