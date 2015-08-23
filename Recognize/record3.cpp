@@ -1,7 +1,7 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 #include <iostream>
-#define NUMBER_OF_IMAGE 50
+#define NUMBER_OF_IMAGE 5
 using namespace std;
 
 int imageCounter = 1, timer = 0;
@@ -31,7 +31,7 @@ void Capture_Image(IplImage* image, CvCapture* capture){
 	int i;
 	char *s;
 	while( imageCounter < NUMBER_OF_IMAGE ){
-		delayDefineByMyself(1);
+		//delayDefineByMyself(1);
 		image = cvQueryFrame(capture);
 		cvWaitKey(1000);
 		timer++;
@@ -49,16 +49,16 @@ int main(){
 	CvCapture *capture = 0;
 
 	//assign the property about camera
-	capture = cvCaptureFromCAM(0);
+	capture = cvCaptureFromCAM(1);
 	if( capture ){
-		cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_WIDTH, 320);
-		cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_HEIGHT, 240);
+		cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_WIDTH, 1920);
+		cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_HEIGHT, 1440);
 	}
 	else
 		cout<<"camera is null..."<<endl;
 
 	//work for a while
-	delayDefineByMyself(30);
+	//delayDefineByMyself(30);
 	for(i=0; i<15; i++){
 		if( img = cvQueryFrame(capture) )
 			cvWaitKey(20);
